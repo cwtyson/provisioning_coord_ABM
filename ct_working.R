@@ -1,0 +1,9 @@
+shortTrip <- function()
+{
+
+}
+
+longTrip <- function()
+{
+	
+}
