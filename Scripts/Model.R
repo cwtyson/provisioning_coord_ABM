@@ -97,7 +97,7 @@ invisible(file.create(outFilename))
 
 # The header line for the output csv file
 # (i.e., the column names for the output dataframe)
-outHeader <- paste("baseEnergy",		# Parent starting energy
+outHeader <- paste("baseMass",			# Parent starting energy
 		   "shortMetabolism",		# Daily metabolic cost during short trip
 		   "shortMean",			# Mean of normal daily foraging intake during short trip
 		   "shortSD",			# S.D. of normal daily foraging intake during short trip
@@ -108,8 +108,8 @@ outHeader <- paste("baseEnergy",		# Parent starting energy
 		   "longSD",			# S.D. of normal daily foraging intake during long trip
 		   "maxLongDays",		# Length of long trip (days)
 		   "maxLongTrips",		# Number of long trips within a cycle of long trips
-		   "parentEnergy_F",		# Finale FEMALE parent energy
-		   "parentEnergy_M",		# Final MALE parent energy
+		   "parentMass_F",		# Finale FEMALE parent energy
+		   "parentMass_M",		# Final MALE parent energy
 		   "chickMass",			# Final chick mass (g)
 		   "chickWing",			# Final chick wing length (mm)
 		   "chickTarsus",		# Final chick tarsus length (mm)
@@ -149,7 +149,7 @@ for (replicate in 1:NUM_REPLICATES) {
 	#      for when we want to test across different parameters. 
 	#      Right now both parents are the same, so just taking one parameter
 	#      value from the female parent.
-	outLine <- paste(pf@baseEnergy,		# Parent starting energy
+	outLine <- paste(pf@baseMass,		# Parent starting mass
 		  	 pf@shortMetabolism,	# Daily metabolic cost during short trip
 		   	 pf@shortMean,		# Mean of normal daily foraging intake during short trip
 		   	 pf@shortSD,		# S.D. of normal daily foraging intake during short trip
@@ -160,8 +160,8 @@ for (replicate in 1:NUM_REPLICATES) {
 		   	 pf@longSD,		# S.D. of normal daily foraging intake during long trip
 		   	 pf@maxLongDays,	# Length of long trip (days)
 		   	 pf@maxLongTrips,	# Number of long trips within a cycle of long trips
-		   	 pf@energy,		# Finale FEMALE parent energy
-		   	 pm@energy,		# Final MALE parent energy
+		   	 pf@mass,		# Finale FEMALE parent mass
+		   	 pm@mass,		# Final MALE parent mass
 		   	 chick@mass,		# Final chick mass (g)
 		   	 chick@wing,		# Final chick wing length (mm)
 		   	 chick@tarsus,		# Final chick tarsus length (mm)

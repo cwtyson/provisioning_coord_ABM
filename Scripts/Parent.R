@@ -6,8 +6,8 @@
 Parent <- setClass("Parent", 
 	 	   slots=c(sex             = "character",	# Sex ("female" or "male")
 	  	  	   tripType        = "character",	# Current trip type ("short" or "short")
-	  	   	   baseEnergy	   = "numeric",		# Starting energy
-	  	   	   energy          = "numeric",		# Current energy (starts at starting energy)
+	  	   	   baseMass	   = "numeric",		# Starting mass (proxy for energy)
+	  	   	   mass            = "numeric",		# Current mass (starts at starting mass)
 	  	   	   currDays        = "numeric",		# Current days on current trip
 	  	   	   currTrips       = "numeric",		# Current trip in trip cycle
 	  	   	   chickMeal       = "numeric",		# Stored energy to be transferred to chick
@@ -38,8 +38,8 @@ setMethod("initialize", "Parent",
 	  	   } else {
 	  	   	.Object@sex 		<- sex              	# Parent sex
 	  	  	.Object@tripType        <- tripType		# Starting current trip type
-	  	   	.Object@baseEnergy	<- BASE_ENERGY		# Starting energy
-	  	   	.Object@energy          <- BASE_ENERGY		# Current energy (starts at starting energy)
+	  	   	.Object@baseMass	<- BASE_MASS		# Starting mass (proxy for energy)
+	  	   	.Object@mass            <- BASE_MASS		# Current mass (starts at starting mass)
 	  	   	.Object@currDays        <- 0			# Current days on current trip
 	  	   	.Object@currTrips       <- 0			# Current trip in trip cycle
 	  	   	.Object@chickMeal       <- 0			# Stored energy to be transferred to chick
@@ -86,9 +86,9 @@ shortTrip <- function(parent, chick)
 	intake <- rnorm(1, mean = parent@shortMean, sd = parent@shortSD)
 
 	# add intake energy and remove daily metabolism
-	parent@energy = parent@energy - 
-			parent@shortMetabolism + 
-			intake
+	parent@mass = parent@mass - 
+		      parent@shortMetabolism + 
+	              intake
 
 	# Right now we just add one chick meal "token" for each day.
 	# This is just for testing
@@ -130,9 +130,9 @@ longTrip <- function(parent, chick)
 	intake <- rnorm(1, mean = parent@longMean, sd = parent@longSD)
 
 	# add intake energy and remove daily metabolism
-	parent@energy = parent@energy - 
-			parent@longMetabolism + 
-			intake
+	parent@mass = parent@mass - 
+		      parent@longMetabolism + 
+		      intake
 
 	# Right now we just add one chick meal "token" for each day.
 	# This is just for testing
