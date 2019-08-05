@@ -1,4 +1,16 @@
 ############################################
+#	           TODO         	   #
+############################################
+
+# Fundamental changes
+
+# Parameters needed to start:
+#	BREEDING_SEASON_DAYS
+#       metabolic input and output for long and short trips (or net mass change)
+# 	grow() function behavior (how does a chick accumulate mass. For more detail-- how does energy accumulation become tarsus and wing mass)
+#	provision() function behavior + chickMeal lines in shortTrip() and longTrip() (how does parent mass/energy become chick mass/energy?)
+
+############################################
 #	         Logistics         	   #
 ############################################
 library(tidyverse)
@@ -14,7 +26,7 @@ OUTPUT_FNAME	     <- "sims.txt"	# Output file storage
 NUM_REPLICATES 	     <- 10		# Breeding season replicates
 BREEDING_SEASON_DAYS <- 40 		# Length of a chick provisioning season (days)
 
-BASE_ENERGY 	     <- 100		# Starting energy for parent
+BASE_MASS 	     <- 100		# Starting energy for parent
 
 SHORT_METABOLISM     <- 10		# Daily metabolic cost during short trip
 SHORT_MEAN 	     <- 20		# Mean of normal daily foraging intake during short trip
@@ -80,7 +92,6 @@ breedingSeason <- function(ndays,
 # 	avoid storing really long vectors in dynamic memory,
 #	which could cause issues as we add more test cases,
 #	sensitivity analyses, etc., in the future
-
 outFilename <- paste("Output/", OUTPUT_FNAME, sep="")
 invisible(file.create(outFilename))
 

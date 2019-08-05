@@ -58,7 +58,6 @@ setMethod("initialize", "Parent",
 	  	  
 	 })
 
-
 ############################################
 # 	       Parent Behavior             #
 ############################################
@@ -172,4 +171,3 @@ provision <- function(parent, chick)
 
 	return(list(parent = parent, chick = chick))
 }
-
