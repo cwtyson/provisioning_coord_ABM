@@ -5,8 +5,13 @@
 # Fundamental changes
 
 # Parameters needed to start:
-#	BREEDING_SEASON_DAYS
-#       metabolic input and output for long and short trips (or net mass change)
+#	#	BREEDING_SEASON_DAYS - 70 days (Brooke, M. (2013). The manx shearwater. A&C Black.)
+
+	# Mass change for each trip: In the Shoji et al (2015) they consider three trip types (short 1-3 days, medium 4-7, long 8-11 days)  and reported the following mass before/after for each trip type:
+	# Short: 416 +/-  35 g, 407 +/- 28 g
+	# Medium: 406 +/- 42 g, 397 +/- 30 g
+	# Long 437 +/- 42 g, 412 +/- 44 g
+
 # 	grow() function behavior (how does a chick accumulate mass. For more detail-- how does energy accumulation become tarsus and wing mass)
 #	provision() function behavior + chickMeal lines in shortTrip() and longTrip() (how does parent mass/energy become chick mass/energy?)
 
